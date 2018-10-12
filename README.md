@@ -1,6 +1,6 @@
 # &quot;Relief&quot;
 
-Relief would be an Android/ iOS app for disaster management at the very personal level. This app will be helpful for everyone especially for the people living in a disaster-prone area. The app would help people to know about the disasters or when the next may come or what do it in a situation if the user or someone else is disaster-struck. It will also provide the platform for others people to provide Relief measures to the victims of the unfortunate.
+Relief would be an Android app for disaster management at the very personal level. This app will be helpful for everyone especially for the people living in a disaster-prone area. The app would help people to know about the disasters or when the next may come or what do it in a situation if the user or someone else is disaster-struck. It will also provide the platform for others people to provide Relief measures to the victims of the unfortunate.
 
 ## Key Features
 
