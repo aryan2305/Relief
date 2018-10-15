@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Relief</string>
+    <string name="app_name">RELIEF</string>
+    <string name="user_id">User Id</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="signup">SIGN UP</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_city">City</string>
+    <string name="hint_gender">I am</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="hint_state">State</string>
+    <string name="hint_country">Country</string>
+    <string name="err_msg_email">Enter a valid email</string>
+    <string name="err_msg_required">Required</string>
+    <string name="err_msg_password">Enter password</string>
+    <string name="err_msg_country">Enter the Country you live in</string>
+    <string name="err_msg_name">Enter your Name</string>
+    <string name="err_msg_state">Enter the State you live in</string>
+    <string name="err_msg_city">Enter the city you live in</string>
+    <string name="hint_dob">Enter D.O.B (DD/MM/YYYY)</string>
+    <string name="err_msg_dob">Enter a valid DOB (dd/mm/yyyy)</string>
+    <string name="hint_email">Email</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_link_signup">Haven\'t registered yet? Click here</string>
+
 </resources>
