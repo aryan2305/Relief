@@ -4,13 +4,6 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
-    <ImageView
-        android:id="@+id/weather"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/weather"
-        android:scaleType="fitXY"
-         />
 
     <Button
         android:id="@+id/sos"
@@ -23,5 +16,15 @@
         android:text="SOS"
         android:textSize="50dp"
          />
+
+    <TextView
+        android:id="@+id/textview_UserDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="Hey User!!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
 </RelativeLayout>

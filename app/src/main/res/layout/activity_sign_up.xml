@@ -131,6 +131,7 @@
                 android:textSize="20dp"
                 android:fontFamily="@string/hint_password"/>
             <RadioGroup
+                android:id="@+id/gender_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/gender_textview"

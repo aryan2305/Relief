@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -23,7 +24,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String TAG = "LoginActivity";
+    private static final String TAG = LoginActivity.class.getSimpleName();
     private static final String URL_FOR_LOGIN = "https://XXX.XXX.X.XX/android_login_example/login.php";
     ProgressDialog progressDialog;
     private EditText loginInputEmail, loginInputPassword;
@@ -45,10 +46,25 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser(loginInputEmail.getText().toString(),
-                        loginInputPassword.getText().toString());
-            }
-        });
+                /*loginUser(loginInputEmail.getText().toString(),
+                        loginInputPassword.getText().toString());*/
+
+                if (loginInputEmail.getText().toString().equals("user@xyz.com") && loginInputPassword.getText().toString().equals("password")){
+                    progressDialog.setMessage("Logging you in...");
+                    showDialog();
+                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    String user = "User";
+                    intent.putExtra("username", user);
+                    startActivity(intent);
+                    hideDialog();
+
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "App is in testing period so Email = 'user@xyz.com' & Password  = 'password' ",
+                            Toast.LENGTH_LONG).show();
+                }
+        }});
+
 
         btnLinkSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +77,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser( final String email, final String password) {
+
+
+
         // Tag used to cancel the request
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");

@@ -10,17 +10,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import static android.os.Build.VERSION;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private TextView userDetails;
+    private Button SOS;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Button SOS;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        if(username == null || username.isEmpty())
+        {
+            username = "User";
+        }
+
+        userDetails = (TextView) findViewById(R.id.textview_UserDetails);
+        userDetails.setText("Hey "+username +" !!");
+
         SOS = findViewById(R.id.sos);
 
         SOS.setOnClickListener(new View.OnClickListener() {
