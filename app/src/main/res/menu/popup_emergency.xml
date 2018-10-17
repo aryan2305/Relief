@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/helpline"
+        android:title="HELPLINE"/>
+
+    <item
+        android:id="@+id/fire"
+        android:title="FIRE" />
+    <item
+        android:id="@+id/hospital"
+        android:title="HOSPITAL"/>
+    <item
+        android:id="@+id/Police"
+        android:title="POLICE"/>
+</menu>
