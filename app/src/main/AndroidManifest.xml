@@ -36,9 +36,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            tools:ignore="DuplicateActivity">
-
-        </activity>
+            tools:ignore="DuplicateActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
         <!--
@@ -59,7 +57,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LostActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
