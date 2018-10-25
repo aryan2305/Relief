@@ -29,8 +29,8 @@ public class NewsFeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
 
-        mTextView = (TextView) findViewById(R.id.mTextView_layout);
-        String url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories/14?days=20";
+        mTextView = findViewById(R.id.mTextView_layout);
+        String url = "https://api.androidhive.info/volley/person_object.json";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -39,8 +39,8 @@ public class NewsFeedActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         Log.d(TAG,response.toString());
                         try{
-                            String title = response.getString("title");
-                            String description = response.getString("description");
+                            String title = response.getString("name");
+                            String description = response.getString("email");
 
                             String jsonResponse = "Title" + title + "Description" + description;
                             mTextView.setText(jsonResponse);

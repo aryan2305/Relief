@@ -15,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,11 +26,13 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
-    private static final String URL_FOR_LOGIN = "https://XXX.XXX.X.XX/android_login_example/login.php";
+    private static final String URL_FOR_LOGIN = "https://14.139.196.9/Relief_login/login.php";
     ProgressDialog progressDialog;
     private EditText loginInputEmail, loginInputPassword;
     private Button btnlogin;
     private Button btnLinkSignup;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +49,10 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*loginUser(loginInputEmail.getText().toString(),
-                        loginInputPassword.getText().toString());*/
+                loginUser(loginInputEmail.getText().toString(),
+                        loginInputPassword.getText().toString());
 
-                if (loginInputEmail.getText().toString().equals("user@xyz.com") && loginInputPassword.getText().toString().equals("password")){
+                /*if (loginInputEmail.getText().toString().equals("user@xyz.com") && loginInputPassword.getText().toString().equals("password")){
                     progressDialog.setMessage("Logging you in...");
                     showDialog();
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
@@ -62,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(LoginActivity.this, "App is in testing period so Email = 'user@xyz.com' & Password  = 'password' ",
                             Toast.LENGTH_LONG).show();
-                }
+                }*/
         }});
 
 
@@ -134,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
         // Adding request to request queue
-       // AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq,cancel_req_tag);
+       AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq);
     }
 
     private void showDialog() {

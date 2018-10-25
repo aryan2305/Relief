@@ -24,5 +24,7 @@
     <string name="hint_email">Email</string>
     <string name="btn_login">Login</string>
     <string name="btn_link_signup">Haven\'t registered yet? Click here</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_news_feed">NewsFeedActivity</string>
 
 </resources>

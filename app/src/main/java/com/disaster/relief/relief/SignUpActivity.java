@@ -33,7 +33,7 @@ import java.util.Map;
 public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = SignUpActivity.class.getSimpleName();
-    private static final String URL_FOR_REGISTRATION = "https://XXX.XXX.X.XX/android_login_example/register.php";
+    private static final String URL_FOR_REGISTRATION = "https://14.139.196.9/Relief_login/register.php";
     private Vibrator vib;
     ProgressDialog progressDialog;
     Animation animShake;
@@ -143,14 +143,14 @@ public class SignUpActivity extends AppCompatActivity {
                 SignUpActivity.this,
                 LoginActivity.class);
         startActivity(intent);
-        /*registerUser(signupInputName.getText().toString(),
+        registerUser(signupInputName.getText().toString(),
                 signupInputEmail.getText().toString(),
                 signupInputPassword.getText().toString(),
                 gender,
                 signupInputDOB.getText().toString(),
                 signupInputCity.getText().toString(),
                 signupInputState.getText().toString(),
-                signupInputCountry.getText().toString());*/
+                signupInputCountry.getText().toString());
         Toast.makeText(getApplicationContext(), "You are successfully Registered !!", Toast.LENGTH_SHORT).show();
     }
 
@@ -334,7 +334,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         };
         // Adding request to request queue
-       // AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq);
     }
 
     private void showDialog() {
