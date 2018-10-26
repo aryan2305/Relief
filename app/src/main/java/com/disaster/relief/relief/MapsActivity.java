@@ -3,8 +3,10 @@ package com.disaster.relief.relief;
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.nfc.Tag;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -25,6 +27,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -36,15 +41,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private EditText editLocation = null;
     private ProgressBar pb = null;
     private Button btnGetLocation = null;
-    String latitude;
-    String longitude;
+    String latitude1;
+    String longitude1;
+    public double[] latitude =new double[40];
+    public double[] longitude = new double[40];
+    public int size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        btnGetLocation = (Button) findViewById(R.id.btnLocation);
-
+        Intent intent = getIntent();
+        latitude = intent.getDoubleArrayExtra("lat");
+        longitude = intent.getDoubleArrayExtra("long");
+        size=intent.getIntExtra("size",0);
+        pb = (ProgressBar) findViewById(R.id.progressBar1);
+        pb.setVisibility(View.INVISIBLE);
 
         locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -58,7 +70,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 flag = displayGpsStatus();
                 if (flag) {
                     Log.v(TAG, "onclick");
-                    locationListener = new MyLocationListener();
+
+                    locationListener=new MyLocationListener();
                     if ((ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) && (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
                         // TODO: Consider calling
                         ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
@@ -67,7 +80,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     }
 
-                    locationMangaer.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
+                    locationMangaer.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, locationListener);
+                }
+                else {
+                    Log.v(TAG,"Gps is off");
                 }
 
             }
@@ -82,10 +98,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
 
 
-        LatLng sydney;
-        sydney = new LatLng(0, 0);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        for (int i=0;i<size;i++)
+        {
+            LatLng sydney;
+            sydney = new LatLng(longitude[i],latitude[i]);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+
 
 
     }
@@ -107,16 +127,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public class MyLocationListener implements LocationListener {
         @Override
         public void onLocationChanged(Location loc) {
-
-
+            Log.v(TAG,"Chutiya");
             pb.setVisibility(View.INVISIBLE);
             Toast.makeText(getBaseContext(), "Location changed : Lat: " +
                             loc.getLatitude() + " Lng: " + loc.getLongitude(),
                     Toast.LENGTH_SHORT).show();
-            longitude = "Longitude: " + loc.getLongitude();
-            Log.v(TAG, longitude);
-            latitude = "Latitude: " + loc.getLatitude();
-            Log.v(TAG, latitude);
+            longitude1 = "Longitude: " + loc.getLongitude();
+            Log.v(TAG, longitude1);
+            latitude1 = "Latitude: " + loc.getLatitude();
+            Log.v(TAG, latitude1);
 
 
         }

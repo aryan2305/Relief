@@ -3,7 +3,7 @@ package com.disaster.relief.relief;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
-import com.bumptech.glide.request.RequestOptions;
+
 
 import java.util.List;
 import android.content.Context;
@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+
 
 
 /**
@@ -23,7 +23,7 @@ import com.bumptech.glide.Glide;
  */
 
 class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
-    RequestOptions options ;
+
     private Context mContext ;
     private List<DisasterNews> mData ;
 
@@ -33,10 +33,7 @@ class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
 
         this.mContext = mContext;
         this.mData = lst;
-        options = new RequestOptions()
-                .centerCrop()
-                .placeholder(R.drawable.com_facebook_auth_dialog_background)
-                .error(R.drawable.com_facebook_auth_dialog_background);
+
 
     }
 

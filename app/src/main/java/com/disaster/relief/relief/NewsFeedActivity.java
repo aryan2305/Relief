@@ -1,12 +1,16 @@
 package com.disaster.relief.relief;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +33,13 @@ public class NewsFeedActivity extends AppCompatActivity {
     public TextView mTextView;
     private urlBook urlList = new urlBook();
     private List<DisasterNews> listDisaster = new ArrayList<>();
+    public double[] latitude;
+    public double[] longitude;
+    public int index;
     private RecyclerView Myrv;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private Button mapbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +47,12 @@ public class NewsFeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_feed);
 
         Myrv = (RecyclerView) findViewById(R.id.rv);
+        mapbtn = (Button) findViewById(R.id.mapButton);
         //layoutManager = new LinearLayoutManager(this);
        // Myrv.setLayoutManager(layoutManager);
-
+        index =0;
+        latitude=new double[40];
+        longitude=new double[40];
 
         //mTextView = (TextView) findViewById(R.id.txtResponse);
         for (int i=1;i<urlList.getSize();i++)
@@ -85,18 +96,12 @@ public class NewsFeedActivity extends AppCompatActivity {
                             longi = (double) coordinates.get(1);
                             Log.d(TAG,String.valueOf(lat));
                             Log.d(TAG,String.valueOf(longi));
+                            Log.d(TAG,String.valueOf(index));
+                            latitude[index]=lat;
+                            longitude[index++]=longi;
 
-                            /*String jsonResponse;
 
-                            jsonResponse = "\n\n";
-                            jsonResponse += title + "\n";
-                            jsonResponse += description + "\n";
-                            jsonResponse += "Date: " + date + "\n";*/
-                            //jsonResponse += "Latitude: " + latitude + "\n";
-                            //jsonResponse += "Longitude: " + longitude + "\n";
-                            //jsonResponse += " " +  + "\n\n";
-                            //Toast.makeText(getApplicationContext(), jsonResponse, Toast.LENGTH_LONG).show();
-                            //mTextView.setText(jsonResponse+mTextView.getText());
+
                             disaster.setName(title);
                             disaster.setDescription(description);
                             disaster.setDate(date);
@@ -135,6 +140,17 @@ public class NewsFeedActivity extends AppCompatActivity {
             AppSingleton.getInstance(this).addToRequestQueue(jsonObjReq);
 
         }
+
+        mapbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewsFeedActivity.this,MapsActivity.class);
+                intent.putExtra("lat",latitude);
+                intent.putExtra("long",longitude);
+                intent.putExtra("size",index-1);
+                startActivity(intent);
+            }
+        });
 
 
     }

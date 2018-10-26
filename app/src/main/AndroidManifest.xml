@@ -37,14 +37,11 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            tools:ignore="DuplicateActivity"></activity>
-        <activity android:name=".MainActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            tools:ignore="DuplicateActivity">
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
+
+
         <activity android:name=".SignUpActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -58,18 +55,17 @@
         <activity
             android:name=".NewsFeedActivity"
             android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".LostActivity">
 
         </activity>
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-        </activity>
     </application>
 
 </manifest>
