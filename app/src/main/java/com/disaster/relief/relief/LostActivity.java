@@ -1,5 +1,6 @@
 package com.disaster.relief.relief;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,6 +72,14 @@ public class LostActivity extends AppCompatActivity {
                 gender.setText("");
 
                 Toast.makeText(LostActivity.this,"Data Insertion Successful",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        database.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_see = new Intent(LostActivity.this,SeeLostActivity.class);
+                startActivity(intent_see);
             }
         });
 
