@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/com_facebook_auth_dialog_header_background"
     tools:context="com.disaster.relief.relief.NewsFeedActivity">
 
 
@@ -17,9 +18,9 @@
     <Button
         android:id="@+id/mapButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="76dp"
         android:layout_alignParentBottom="true"
-        android:text="Button"
+        android:text="Get Location of Places on Map"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />

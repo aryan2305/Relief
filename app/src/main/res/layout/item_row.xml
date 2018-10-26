@@ -7,14 +7,15 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="150dp"
+    android:layout_margin="@dimen/com_facebook_likeboxcountview_border_radius"
     >
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="131dp"
         android:layout_margin="8dp"
+        android:background="@drawable/com_facebook_button_login_silver_background"
         android:orientation="vertical">
 
 
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Latitude: " />
+
         <TextView
             android:id="@+id/longitude"
             android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.disaster.relief.relief;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
@@ -47,14 +48,15 @@ class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         holder.dsname.setText(mData.get(position).getName());
         holder.ds_description.setText(mData.get(position).getDescription());
         holder.dsdate.setText(mData.get(position).getDate());
-        holder.ds_latitude.setText(String.valueOf(mData.get(position).getLatitude()));
-        holder.ds_longitude.setText(String.valueOf(mData.get(position).getLongitude()));
+        holder.ds_latitude.setText(holder.ds_latitude.getText()+String.valueOf(mData.get(position).getLatitude()));
+        holder.ds_longitude.setText(holder.ds_longitude.getText()+String.valueOf(mData.get(position).getLongitude()));
 
         // load image from the internet using Glide
         //Glide.with(mContext).load(mData.get(position).getImage_url()).apply(options).into(holder.AnimeThumbnail);

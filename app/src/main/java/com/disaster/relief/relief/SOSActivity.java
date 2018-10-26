@@ -27,34 +27,34 @@ public class SOSActivity extends AppCompatActivity {
         hospital_button = findViewById(R.id.hospital);
         police_button = findViewById(R.id.police);
         helpline_button = findViewById(R.id.helpline);
-        sos_message = findViewById(R.id.distress);
+
 
 
         fire_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                callPhoneNumber("123456789");
+                callPhoneNumber("101");
             }
         });
 
         hospital_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                callPhoneNumber("123456789");
+                callPhoneNumber("102");
             }
         });
 
         police_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                callPhoneNumber("123456789");
+                callPhoneNumber("100");
             }
         });
 
         helpline_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                callPhoneNumber("123456789");
+                callPhoneNumber("+91-11-26701700");
             }
         });
     }

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button SOS;
     private Button safety;
     private Button newsFeed;
+    private Button lostandfound;
     static String num;
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
@@ -31,19 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        if(username == null || username.isEmpty())
-        {
-            username = "User";
-        }
-
-        userDetails = (TextView) findViewById(R.id.textview_UserDetails);
-        userDetails.setText("Hey "+username +" !!");
-
         SOS = findViewById(R.id.sos);
         newsFeed = findViewById(R.id.newsFeed_button);
-
+        lostandfound = findViewById(R.id.LostandFound);
 
         newsFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent_sos = new Intent(MainActivity.this,SOSActivity.class);
                 startActivity(intent_sos);
+            }
+        });
+        lostandfound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_lost= new Intent(MainActivity.this,LostActivity.class);
+                startActivity(intent_lost);
             }
         });
 

@@ -48,13 +48,12 @@ public class NewsFeedActivity extends AppCompatActivity {
 
         Myrv = (RecyclerView) findViewById(R.id.rv);
         mapbtn = (Button) findViewById(R.id.mapButton);
-        //layoutManager = new LinearLayoutManager(this);
-       // Myrv.setLayoutManager(layoutManager);
+
         index =0;
         latitude=new double[40];
         longitude=new double[40];
 
-        //mTextView = (TextView) findViewById(R.id.txtResponse);
+
         for (int i=1;i<urlList.getSize();i++)
         {
             String url1 = urlList.getString(i);
@@ -90,23 +89,29 @@ public class NewsFeedActivity extends AppCompatActivity {
                             Log.d(TAG,date);
                             //Toast.makeText(getApplicationContext(), date, Toast.LENGTH_LONG).show();
 
-                            JSONArray coordinates = geometries_data.getJSONArray("coordinates");
-                            double lat,longi;
-                            lat = (double) coordinates.get(0);
-                            longi = (double) coordinates.get(1);
-                            Log.d(TAG,String.valueOf(lat));
-                            Log.d(TAG,String.valueOf(longi));
-                            Log.d(TAG,String.valueOf(index));
-                            latitude[index]=lat;
-                            longitude[index++]=longi;
+
+
+                                JSONArray coordinates = geometries_data.getJSONArray("coordinates");
+                                double lat,longi;
+                                lat = (double) coordinates.get(0);
+                                longi = (double) coordinates.get(1);
+                                Log.d(TAG,String.valueOf(lat));
+                                Log.d(TAG,String.valueOf(longi));
+                                Log.d(TAG,String.valueOf(index));
+                                latitude[index]=lat;
+                                longitude[index++]=longi;
+                                disaster.setLatitude(lat);
+                                disaster.setLongitude(longi);
+
+
+
 
 
 
                             disaster.setName(title);
                             disaster.setDescription(description);
                             disaster.setDate(date);
-                            disaster.setLatitude(lat);
-                            disaster.setLongitude(longi);
+
 
                             listDisaster.add(disaster);
                             Log.d(TAG,listDisaster.toString());
@@ -121,8 +126,6 @@ public class NewsFeedActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
 
-                    Toast.makeText(NewsFeedActivity.this,"Size of Liste "+String.valueOf(listDisaster.size()),Toast.LENGTH_SHORT).show();
-                    Toast.makeText(NewsFeedActivity.this,listDisaster.get(0).toString(),Toast.LENGTH_SHORT).show();
                     setRvadapter(listDisaster);
 
                 }

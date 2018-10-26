@@ -39,7 +39,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationListener locationListener = null;
     private Boolean flag = false;
     private EditText editLocation = null;
-    private ProgressBar pb = null;
     private Button btnGetLocation = null;
     String latitude1;
     String longitude1;
@@ -55,8 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         latitude = intent.getDoubleArrayExtra("lat");
         longitude = intent.getDoubleArrayExtra("long");
         size=intent.getIntExtra("size",0);
-        pb = (ProgressBar) findViewById(R.id.progressBar1);
-        pb.setVisibility(View.INVISIBLE);
+
 
         locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -94,7 +92,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        Toast.makeText(getApplicationContext(), "HEY BITCH", Toast.LENGTH_SHORT).show();
         // Add a marker in Sydney and move the camera
 
 
@@ -128,10 +125,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         @Override
         public void onLocationChanged(Location loc) {
             Log.v(TAG,"Chutiya");
-            pb.setVisibility(View.INVISIBLE);
-            Toast.makeText(getBaseContext(), "Location changed : Lat: " +
-                            loc.getLatitude() + " Lng: " + loc.getLongitude(),
-                    Toast.LENGTH_SHORT).show();
+
             longitude1 = "Longitude: " + loc.getLongitude();
             Log.v(TAG, longitude1);
             latitude1 = "Latitude: " + loc.getLatitude();

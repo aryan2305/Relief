@@ -5,66 +5,92 @@
     android:id="@+id/newsFeed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/com_facebook_button_login_silver_background"
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
     <Button
         android:id="@+id/sos"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="133dp"
+        android:layout_height="88dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="8dp"
-        android:background="@color/com_facebook_button_background_color_pressed"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="180dp"
+        android:background="@color/login_button_background"
         android:text="SOS"
         android:textAllCaps="true"
-        android:textColor="@color/primary_text_disabled_material_dark"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/safety"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="140dp"
+        android:layout_height="90dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="8dp"
-        android:background="@color/com_facebook_button_background_color_pressed"
+        android:layout_marginBottom="308dp"
+        android:background="@color/login_button_background"
         android:text="Safety Tips"
         android:textAllCaps="true"
-        android:textColor="@color/bright_foreground_disabled_material_dark"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sos"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/newsFeed_button"
-        android:layout_width="392dp"
-        android:layout_height="75dp"
+        android:layout_width="141dp"
+        android:layout_height="89dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="128dp"
-        android:background="@color/com_facebook_button_background_color_pressed"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="308dp"
+        android:background="@color/login_button_background"
         android:text="Current Disasters"
         android:textAllCaps="true"
-        android:textColor="@color/bright_foreground_disabled_material_dark"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="DuplicateIds,MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/safety"
+        tools:ignore="DuplicateIds,MissingConstraints" />
 
     <TextView
         android:id="@+id/textview_UserDetails"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:text="Hey User!!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="RELIEF"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <Button
+        android:id="@+id/LostandFound"
+        android:layout_width="150dp"
+        android:layout_height="87dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="180dp"
+        android:background="@color/login_button_background"
+        android:text="Lost and Found"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </android.support.constraint.ConstraintLayout>
