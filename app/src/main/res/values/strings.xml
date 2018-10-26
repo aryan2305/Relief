@@ -26,5 +26,8 @@
     <string name="btn_link_signup">Haven\'t registered yet? Click here</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_news_feed">NewsFeedActivity</string>
+    <string name="start_updates">START LOCATION UPDATES</string>
+    <string name="stop_updates">STOP LOCATION UPDATES</string>
+    <string name="get_last_location">GET LAST LOCATION</string>
 
 </resources>
