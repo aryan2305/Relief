@@ -44,10 +44,10 @@ public class SeeLostActivity extends AppCompatActivity {
                 {
                     Details detail = snapshot.getValue(Details.class);
                     Log.d(TAG,String.valueOf(detail.name));
-                    Toast.makeText(getApplicationContext(),String.valueOf(detail.name),Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),String.valueOf(detail.name),Toast.LENGTH_LONG).show();
                     myDataset.add(detail);
                 }
-                Toast.makeText(getApplicationContext(),String.valueOf(myDataset.size()),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),String.valueOf(myDataset.size()),Toast.LENGTH_LONG).show();
                 setRvadapter(myDataset);
             }
 
