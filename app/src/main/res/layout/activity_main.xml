@@ -1,21 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newsFeed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <Button
         android:id="@+id/sos"
-        android:layout_width="179dp"
-        android:layout_height="160dp"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="0dp"
-        android:textAllCaps="true"
+        android:layout_marginEnd="8dp"
+        android:background="@color/com_facebook_button_background_color_pressed"
         android:text="SOS"
-        android:textSize="50dp"
-         />
+        android:textAllCaps="true"
+        android:textColor="@color/primary_text_disabled_material_dark"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/safety"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/com_facebook_button_background_color_pressed"
+        android:text="Safety Tips"
+        android:textAllCaps="true"
+        android:textColor="@color/bright_foreground_disabled_material_dark"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sos"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/newsFeed_button"
+        android:layout_width="392dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="128dp"
+        android:background="@color/com_facebook_button_background_color_pressed"
+        android:text="Current Disasters"
+        android:textAllCaps="true"
+        android:textColor="@color/bright_foreground_disabled_material_dark"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="DuplicateIds,MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textview_UserDetails"
@@ -27,4 +66,5 @@
         android:text="Hey User!!"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
