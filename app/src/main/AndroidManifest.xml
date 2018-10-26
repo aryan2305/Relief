@@ -39,9 +39,9 @@
             android:label="@string/title_activity_maps"
             tools:ignore="DuplicateActivity">
 
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
-
-
         <activity android:name=".SignUpActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -60,11 +60,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".LostActivity">
 
-        </activity>
+        <activity android:name=".SOSActivity"></activity>
+
+
 
     </application>
 
