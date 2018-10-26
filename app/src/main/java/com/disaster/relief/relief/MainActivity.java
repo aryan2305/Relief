@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView userDetails;
     private Button SOS;
+    private Button safety;
+    private Button newsFeed;
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
@@ -39,10 +41,19 @@ public class MainActivity extends AppCompatActivity {
         userDetails.setText("Hey "+username +" !!");
 
         SOS = findViewById(R.id.sos);
+        newsFeed = findViewById(R.id.newsFeed_button);
 
         SOS.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 callPhoneNumber();
+            }
+        });
+        newsFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 =  new Intent(MainActivity.this,NewsFeedActivity.class);
+                startActivity(intent1);
+
             }
         });
 
