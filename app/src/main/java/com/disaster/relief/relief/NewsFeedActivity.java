@@ -1,13 +1,12 @@
 package com.disaster.relief.relief;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,22 +20,31 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Iterator;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewsFeedActivity extends AppCompatActivity {
 
     private static final String TAG = "Json output";
     public TextView mTextView;
     private urlBook urlList = new urlBook();
+    private List<DisasterNews> listDisaster = new ArrayList<>();
+    private RecyclerView Myrv;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
 
-        mTextView = (TextView) findViewById(R.id.txtResponse);
-        for (int i=0;i<urlList.getSize();i++)
+        Myrv = (RecyclerView) findViewById(R.id.rv);
+        //layoutManager = new LinearLayoutManager(this);
+       // Myrv.setLayoutManager(layoutManager);
+
+
+        //mTextView = (TextView) findViewById(R.id.txtResponse);
+        for (int i=1;i<urlList.getSize();i++)
         {
             String url1 = urlList.getString(i);
             JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -56,45 +64,49 @@ public class NewsFeedActivity extends AppCompatActivity {
                         for (int i = 0; i < events.length(); i++) {
 
                             JSONObject list = (JSONObject) events.get(i);
+                            DisasterNews disaster = new DisasterNews();
+
                             String id = list.getString("id");
                             String title = list.getString("title");
-                            // Toast.makeText(getApplicationContext(), title, Toast.LENGTH_LONG).show();
+                            Log.d(TAG,title);
 
                             String description = list.getString("description");
-                            //Toast.makeText(getApplicationContext(), description, Toast.LENGTH_LONG).show();
+                            Log.d(TAG,description);
 
                             JSONArray geometries = list.getJSONArray("geometries");
-
                             JSONObject geometries_data = (JSONObject) geometries.get(0);
-
                             String date = geometries_data.getString("date");
+                            Log.d(TAG,date);
                             //Toast.makeText(getApplicationContext(), date, Toast.LENGTH_LONG).show();
 
-                            //JSONArray coordinates = geometries_data.getJSONArray("coordinates");
-                            //int first =  (int) coordinates.getInt(0);
-                            //int second = (int) coordinates.getInt(1);
+                            JSONArray coordinates = geometries_data.getJSONArray("coordinates");
+                            double lat,longi;
+                            lat = (double) coordinates.get(0);
+                            longi = (double) coordinates.get(1);
+                            Log.d(TAG,String.valueOf(lat));
+                            Log.d(TAG,String.valueOf(longi));
 
-                            //JSONArray cd = (JSONArray) key.next();
-                            // Toast.makeText(getApplicationContext(), second, Toast.LENGTH_LONG).show();
-                            /*JSONArray coordinates2 = coordinates.getJSONArray("");
-                            JSONObject coordinates3 = (JSONObject) coordinates2.get(0);
-                            int latitude,longitude;
-                            latitude = coordinates3.;
-                            longitude=coordinates3.getInt(1);
-                            Toast.makeText(getApplicationContext(), latitude, Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), longitude, Toast.LENGTH_LONG).show();*/
-                            String jsonResponse;
+                            /*String jsonResponse;
 
                             jsonResponse = "\n\n";
                             jsonResponse += title + "\n";
                             jsonResponse += description + "\n";
-                            jsonResponse += "Date: " + date + "\n";
+                            jsonResponse += "Date: " + date + "\n";*/
                             //jsonResponse += "Latitude: " + latitude + "\n";
                             //jsonResponse += "Longitude: " + longitude + "\n";
                             //jsonResponse += " " +  + "\n\n";
                             //Toast.makeText(getApplicationContext(), jsonResponse, Toast.LENGTH_LONG).show();
-                            mTextView.setText(jsonResponse+mTextView.getText());
-                        }
+                            //mTextView.setText(jsonResponse+mTextView.getText());
+                            disaster.setName(title);
+                            disaster.setDescription(description);
+                            disaster.setDate(date);
+                            disaster.setLatitude(lat);
+                            disaster.setLongitude(longi);
+
+                            listDisaster.add(disaster);
+                            Log.d(TAG,listDisaster.toString());
+                            //Toast.makeText(NewsFeedActivity.this,"Size of Liste "+String.valueOf(listDisaster.size()),Toast.LENGTH_SHORT).show();
+                             }
 
 
                     } catch (JSONException e) {
@@ -103,6 +115,10 @@ public class NewsFeedActivity extends AppCompatActivity {
                                 "Error: " + e.getMessage(),
                                 Toast.LENGTH_LONG).show();
                     }
+
+                    Toast.makeText(NewsFeedActivity.this,"Size of Liste "+String.valueOf(listDisaster.size()),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewsFeedActivity.this,listDisaster.get(0).toString(),Toast.LENGTH_SHORT).show();
+                    setRvadapter(listDisaster);
 
                 }
             }, new Response.ErrorListener() {
@@ -123,4 +139,17 @@ public class NewsFeedActivity extends AppCompatActivity {
 
     }
 
+    public void setRvadapter(List<DisasterNews> lst) {
+        RvAdapter myAdapter = new RvAdapter(this,lst) ;
+        Myrv.setLayoutManager(new LinearLayoutManager(this));
+        Myrv.setAdapter(myAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
 }

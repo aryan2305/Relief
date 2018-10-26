@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.disaster.relief.relief">
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+    <uses-sdk android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -33,14 +31,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+
+        <activity android:name=".MainActivity" />
+
         <activity
             android:name=".MapsActivity"
             android:label="title_activity_maps"
             tools:ignore="DuplicateActivity" />
-        <activity android:name=".MainActivity">
 
-
-        </activity>
         <activity android:name=".SignUpActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -61,7 +59,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SOSActivity"></activity>
+
+
+
     </application>
 
 </manifest>
