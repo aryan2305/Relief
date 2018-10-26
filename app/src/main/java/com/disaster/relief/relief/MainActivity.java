@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button SOS;
     private Button safety;
     private Button newsFeed;
+    static String num;
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
@@ -43,17 +44,21 @@ public class MainActivity extends AppCompatActivity {
         SOS = findViewById(R.id.sos);
         newsFeed = findViewById(R.id.newsFeed_button);
 
-        SOS.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                callPhoneNumber();
-            }
-        });
+
         newsFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent1 =  new Intent(MainActivity.this,NewsFeedActivity.class);
                 startActivity(intent1);
 
+            }
+        });
+
+        SOS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_sos = new Intent(MainActivity.this,SOSActivity.class);
+                startActivity(intent_sos);
             }
         });
 

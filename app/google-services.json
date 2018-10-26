@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "739568527695-hig0ctauhkm9is1jmkmk4vodb8gtkfp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.disaster.relief.relief",
+            "certificate_hash": "bf3a4cac2e1c0175ad50a81255e675f24e382001"
+          }
+        },
+        {
           "client_id": "739568527695-njc524dro189fdc0ac5l6c7v8ko4j63a.apps.googleusercontent.com",
           "client_type": 3
         }

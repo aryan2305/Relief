@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id = "@+id/fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FIRE"/>
+
+    <Button
+        android:id="@+id/hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/fire"
+        android:text="HOSPITAL"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/police"
+        android:layout_toRightOf="@id/hospital"
+        android:text = "POLICE"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/police"
+        android:id="@+id/helpline"
+        android:text="HELPLINE"/>
+
+    <Button
+        android:layout_below="@id/fire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Distress message"
+        android:textAlignment="center"
+        android:textSize="36dp"
+        android:id="@+id/distress"
+        />
+
+
+
+</RelativeLayout>
