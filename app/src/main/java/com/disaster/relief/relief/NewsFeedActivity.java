@@ -52,8 +52,8 @@ public class NewsFeedActivity extends AppCompatActivity {
         mapbtn = (Button) findViewById(R.id.mapButton);
 
         index =0;
-        latitude=new double[1000000];
-        longitude=new double[1000000];
+        latitude=new double[100];
+        longitude=new double[100];
         // Progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);

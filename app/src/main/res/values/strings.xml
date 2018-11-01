@@ -29,5 +29,6 @@
     <string name="start_updates">START LOCATION UPDATES</string>
     <string name="stop_updates">STOP LOCATION UPDATES</string>
     <string name="get_last_location">GET LAST LOCATION</string>
+    <string name="title_activity_safety">SafetyActivity</string>
 
 </resources>
