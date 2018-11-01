@@ -2,7 +2,7 @@
 
 Relief is an Android app for disaster management at the very personal level. This app is helpful for everyone especially for the people living in a disaster-prone area. The app helps people to know about the ongoing disaster so that they can know wether they are in a disaster prone area on not. App also tells what do it in a situation if the user or someone else is disaster-struck. It will also provide the platform to find missing people.
 
-## Installtion
+## Installation
    Downoad the below given .apk file into your android phone. App works fine for android version kitkat and above. We have tried our best to make the bug free but let us know if found any.
   
    > [relief.apk](https://reliefdisaseter.blob.core.windows.net/relief-app/relief.apk)
