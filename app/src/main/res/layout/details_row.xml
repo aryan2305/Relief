@@ -2,19 +2,19 @@
 <LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginTop="5dp"
-    android:padding="8dp"
-    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    >
-
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal"
+    android:padding="8dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="131dp"
-        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@color/com_facebook_button_background_color_selected"
         android:orientation="vertical">
 
 
@@ -22,7 +22,7 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User"
+            android:text="Name: "
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -30,38 +30,41 @@
             android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:text="Male"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingEnd="5dp"
-            android:text="8.9"
-            android:textSize="15sp"/>
+            android:text="Age: "
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
         <TextView
             android:id="@+id/contact1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text="Contact No.1: " />
+
         <TextView
             android:id="@+id/contact2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text="Contact No.2: " />
+
         <TextView
             android:id="@+id/address1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text="Last Seen: " />
+
         <TextView
             android:id="@+id/address2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text="Residence: " />
     </LinearLayout>
-
 
 
 </LinearLayout>

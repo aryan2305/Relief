@@ -37,13 +37,15 @@ public class seeRvAdapter extends RecyclerView.Adapter<seeRvAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder2 holder, final int position) {
 
-        holder.ds_name.setText(mData.get(position).getName());
-        holder.ds_gender.setText(mData.get(position).getGender());
-        holder.dsage.setText(mData.get(position).getAge());
-        holder.ds_contact1.setText(String.valueOf(mData.get(position).getContact1()));
+        holder.ds_name.setText("Name: "+mData.get(position).getName());
+
+            holder.ds_gender.setText("Gender: "+mData.get(position).getGender());
+
+        holder.dsage.setText("Age: "+mData.get(position).getAge());
+        holder.ds_contact1.setText("Contact Details : \n"+String.valueOf(mData.get(position).getContact1()));
         holder.ds_contact2.setText(String.valueOf(mData.get(position).getContact2()));
-        holder.ds_address1.setText(String.valueOf(mData.get(position).getAddress1()));
-        holder.ds_address2.setText(String.valueOf(mData.get(position).getAddress2()));
+        holder.ds_address1.setText("Last Seen: "+String.valueOf(mData.get(position).getAddress1()));
+        holder.ds_address2.setText("Residence "+String.valueOf(mData.get(position).getAddress2()));
 
         // load image from the internet using Glide
         //Glide.with(mContext).load(mData.get(position).getImage_url()).apply(options).into(holder.AnimeThumbnail);

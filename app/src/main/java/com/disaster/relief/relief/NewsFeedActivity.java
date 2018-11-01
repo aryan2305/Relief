@@ -1,5 +1,6 @@
 package com.disaster.relief.relief;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -40,6 +41,7 @@ public class NewsFeedActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Button mapbtn;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +52,13 @@ public class NewsFeedActivity extends AppCompatActivity {
         mapbtn = (Button) findViewById(R.id.mapButton);
 
         index =0;
-        latitude=new double[40];
-        longitude=new double[40];
-
+        latitude=new double[1000000];
+        longitude=new double[1000000];
+        // Progress dialog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Extracting Data...");
+        showDialog();
 
         for (int i=1;i<urlList.getSize();i++)
         {
@@ -63,25 +69,27 @@ public class NewsFeedActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.d(TAG, response.toString());
+                    hideDialog();
 
                     try {
                         // Parsing json object response
                         // response will be a json object
-                        String titl = response.getString("title");
-                        //Toast.makeText(getApplicationContext(), titl, Toast.LENGTH_LONG).show();
-
                         JSONArray events = response.getJSONArray("events");
                         for (int i = 0; i < events.length(); i++) {
 
                             JSONObject list = (JSONObject) events.get(i);
                             DisasterNews disaster = new DisasterNews();
 
-                            String id = list.getString("id");
                             String title = list.getString("title");
                             Log.d(TAG,title);
 
                             String description = list.getString("description");
                             Log.d(TAG,description);
+
+                            JSONArray categories = list.getJSONArray("categories");
+                            JSONObject categories_data = (JSONObject) categories.get(0);
+                            String type = categories_data.getString("title");
+
 
                             JSONArray geometries = list.getJSONArray("geometries");
                             JSONObject geometries_data = (JSONObject) geometries.get(0);
@@ -100,17 +108,18 @@ public class NewsFeedActivity extends AppCompatActivity {
                                 Log.d(TAG,String.valueOf(index));
                                 latitude[index]=lat;
                                 longitude[index++]=longi;
-                                disaster.setLatitude(lat);
-                                disaster.setLongitude(longi);
 
 
 
 
 
 
-                            disaster.setName(title);
+
+                            disaster.setName(title +"\n"+ type);
                             disaster.setDescription(description);
                             disaster.setDate(date);
+                            disaster.setLatitude(lat);
+                            disaster.setLongitude(longi);
 
 
                             listDisaster.add(disaster);
@@ -170,5 +179,14 @@ public class NewsFeedActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
 
+    }
+
+    private void showDialog() {
+        if (!progressDialog.isShowing())
+            progressDialog.show();
+    }
+    private void hideDialog() {
+        if (progressDialog.isShowing())
+            progressDialog.dismiss();
     }
 }

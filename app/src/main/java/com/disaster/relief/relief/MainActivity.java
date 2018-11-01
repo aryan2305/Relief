@@ -1,6 +1,7 @@
 package com.disaster.relief.relief;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button safety;
     private Button newsFeed;
     private Button lostandfound;
+    ProgressDialog progressDialog;
     static String num;
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         SOS = findViewById(R.id.sos);
         newsFeed = findViewById(R.id.newsFeed_button);
         lostandfound = findViewById(R.id.LostandFound);
+        // Progress dialog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
 
         newsFeed.setOnClickListener(new View.OnClickListener() {
             @Override

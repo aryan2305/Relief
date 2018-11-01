@@ -34,8 +34,12 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".MainActivity">
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,12 +50,16 @@
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".NewsFeedActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".LostActivity">
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LostActivity"
+            android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".SOSActivity" />
-        <activity android:name=".SeeLostActivity">
+        <activity android:name=".SOSActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SeeLostActivity"
+            android:screenOrientation="portrait">
 
         </activity>
     </application>
