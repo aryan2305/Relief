@@ -16,6 +16,8 @@ Relief is an Android app for disaster management at the very personal level. Thi
     ```
     https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/
     ```
+- ### Showing location of disasters on Maps
+   The latitude and longitude of the locations where the disaster is ongoing is parsed from the api. These are then used to locate the location on the google maps. For Map we have used Google Maps api.
     
 - ### Lost and Found
      The app provides the functionality to the user to search for any of his/her relatives, friends etc. who is lost in the disaster by providing the details of the lost person. These details will be displayed on the dashboard so that if everybody knows about the lost person and they can inform the concerned person in case they find him/her.
