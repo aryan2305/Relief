@@ -1,55 +1,27 @@
 # &quot;Relief&quot;
 
-Relief would be an Android app for disaster management at the very personal level. This app will be helpful for everyone especially for the people living in a disaster-prone area. The app would help people to know about the disasters or when the next may come or what do it in a situation if the user or someone else is disaster-struck. It will also provide the platform for others people to provide Relief measures to the victims of the unfortunate.
+Relief is an Android app for disaster management at the very personal level. This app is helpful for everyone especially for the people living in a disaster-prone area. The app helps people to know about the ongoing disaster so that they can know wether they are in a disaster prone area on not. App also tells what do it in a situation if the user or someone else is disaster-struck. It will also provide the platform to find missing people.
+
+## Installtion
+   Downoad the below given .apk file into your android phone. App works fine for android version kitkat and above. We have tried our best to make the bug free but let us know if found any.
+  
+   > [relief.apk](https://reliefdisaseter.blob.core.windows.net/relief-app/relief.apk)
+  
 
 ## Key Features
 
-- ### Personal Sign-In
-
-    Once the User has the app he would have to provide his Login Credentials so that his public details can be updated in the Database.
-
-- ### Prediction of the Next Disaster
-
-    The App would give the Weather Forecast of that week and the upcoming. It would show the User when and where Disaster have occurred before depending on the user&#39;s current location and whether it is prone to any disaster in the near-time.
-
-    There would be three zones namely, the Red Zone, the Yellow Zone and the White Zone.
-  
-  
-    Red: Dangerous
-    Yellow: Bad Situation
-    White: Safe
-   
-
-- ### During Disaster
-
-    - #### Optimal Path and Important Locations
+- ### Provide Realtime data of Ongoing Disaster
+    Realtime data of ongoing disaster is shown with their location, type and latitude and longitude with the help of json parsing. We have used and api provided by the nasa which provide the data about all the disaster that took place in last one year and the ongoing disaster to get the data. We have used json filtering to extract the desired information of ongoing diaster.
+    API used:
+    ```
+    https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/
+    ```
     
-        A map would be shown to the user to tell them the safest path of going to the next location like the nearest relief centres so as to avoid stranding. The Inaccessible Places would be marked as Red, while the dangerous ones as yellow and the Safe paths as White Dots.
-        
-        The Map would also show the Locations of the nearby Relief Centres, Hospitals, Fire Station and Police Stations. It would also show the locations of your saved Friends so you can contact them easily and they too get notified of your location.
-        
-        It would also provide a rough illustration of the places where most of the people are present at a given time during the Disaster so that the victim can reach there and also the Disaster Services can come as soon as possible
+- ### Lost and Found
+     The app provides the functionality to the user to search for any of his/her relatives, friends etc. who is lost in the disaster by providing the details of the lost person. These details will be displayed on the dashboard so that if everybody knows about the lost person and they can inform the concerned person in case they find him/her.
+- ### SOS
+    In disaster there might be a scenerio that a person might stuck in acute condition and does not have time to serach for the helpline numbers or might left with very less battey backup.
+    This app provides the one click call facility. A person can click on SOS button and select the helpline number he/she wants to call to. Helpline numbers consist of disaster helpline numbers, numbers for medical emrgency, contact of firebrigade, etc.
     
-    - #### Lost and Found
-    
-        The app will provide the functionality to the user to search for any of his/her relatives, friends etc. who is lost in the disaster by providing the details of the lost person. These details will be displayed on the dashboard so that if everybody knows about the lost person and they can inform the concerned person in case they find him/her.
-    
-    - #### Help
-    
-        There would be a section where people can donate money to the respective organisations and also give their home addresses for the Victims.
-        
-        All those who wish to help the Victims by having them in their own quarters would be shown on the Map.
-        
-        All those people who can help people with transportation can also do so by giving their details and the mode of transport like cars, bikes etc.. They can or the Victims can contact them directly via the application so as to notify them. 
-    
-    - #### Donations(***optional***)
-        App will provide platform to donate money. The Database of the donation of the user would be updated accordingly. The amount received by the Victim would also be updated and would be added to their personal bank accounts.
-    
-    - #### Helpline Numbers
-    
-        The contact helpline numbers would also be provided.
-    
-    - #### ChatBot (***optional***)
-    
-        A Chatbot who can verbally guide them can provide immense assistance to the victims.
-        
+- ### Safety  Tips 
+    App provides the info about the various do's and don'ts at the time of diaster. It also provides some preventive measures to minimize the loss at the time of the disaster.
